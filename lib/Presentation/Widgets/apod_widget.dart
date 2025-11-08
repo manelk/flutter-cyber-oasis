@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cyber_oasis/models/apod_model.dart';
 import 'package:flutter_cyber_oasis/presentation/screen/apod_details_screen.dart';
+import 'package:intl/intl.dart';
 
 class ApodWidget extends StatelessWidget {
   const ApodWidget(this.unNamedParam, {super.key, required this.apod});
@@ -16,7 +17,7 @@ class ApodWidget extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute<void>(
-            builder: (context) => const ApodDetailsScreen(),
+            builder: (context) => ApodDetailsScreen(apod: apod),
           ),
         );
       },
@@ -42,7 +43,10 @@ class ApodWidget extends StatelessWidget {
                     style: TextStyle(fontSize: 14),
                   ),
 
-                  Text('Date: ${apod.date}', style: TextStyle(fontSize: 14)),
+                  Text(
+                    'Date: ${DateFormat.yMMMd().format(apod.date)}',
+                    style: TextStyle(fontSize: 14),
+                  ),
 
                   /// OLD EXAMPLE WE FOLLOWED : issue with the  overflow: TextOverflow.ellipsis, does not work
                   // Row(

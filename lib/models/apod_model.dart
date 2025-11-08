@@ -3,7 +3,7 @@
 class ApodModel {
   final String title;
   final String copyright;
-  final String date;
+  final DateTime date;
   final String url;
   final String? explanation;
 
