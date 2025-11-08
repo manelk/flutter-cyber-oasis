@@ -24,4 +24,12 @@ final List<ApodModel> apodList = [
     'https://apod.nasa.gov/apod/image/2501/solaranalemma2024-4-5BetulT1024.jpeg',
     "Recorded during 2024, this year-spanning series of images reveals a pattern in the seasonal drift of the Sun's daily motion through planet Earth's sky...",
   ),
+
+  ApodModel(
+    'Solar Analemma 3',
+    'Betul Turksoy 3',
+    '2025-01-01',
+    'https://apod.nasa.gov/apod/image/2501/solaranalemma2024-4-5BetulT1024.jpeg',
+    "Recorded during 2024, this year-spanning series of images reveals a pattern in the seasonal drift of the Sun's daily motion through planet Earth's sky...",
+  ),
 ];

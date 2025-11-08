@@ -17,11 +17,12 @@ class ApodScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Apod Screen')),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: apodList.length,
         itemBuilder: (context, index) {
           return ApodWidget(null, apod: apodList[index]);
         },
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
     );
   }
