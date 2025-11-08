@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cyber_oasis/Presentation/Screen/apod_screen.dart';
+import 'package:flutter_cyber_oasis/presentation/screen/apod_screen.dart';
 
 void main() {
   runApp(const MyApp());

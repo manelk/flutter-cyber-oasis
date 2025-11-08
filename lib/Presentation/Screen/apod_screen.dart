@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cyber_oasis/Presentation/Widgets/apod_widget.dart';
+import 'package:flutter_cyber_oasis/data/apods_list.dart';
+import 'package:flutter_cyber_oasis/presentation/widgets/apod_widget.dart';
 
 // APOD stands for Astronomy Picture of the Day
 // stl = will give you shortcuts for stateless and stateful widget
@@ -16,7 +17,7 @@ class ApodScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Apod Screen')),
-      body: ApodWidget(),
+      body: ApodWidget(null, apod: apodList[0]),
     );
   }
 }

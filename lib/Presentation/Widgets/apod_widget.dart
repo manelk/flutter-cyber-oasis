@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_cyber_oasis/models/apod_model.dart';
 
 class ApodWidget extends StatelessWidget {
-  const ApodWidget({super.key});
+  const ApodWidget(this.unNamedParam, {super.key, required this.apod});
+
+  // Declare list of string a new param of the widget : ApodWidget
+  final ApodModel apod;
+  final String? unNamedParam;
 
   @override
   Widget build(BuildContext context) {
@@ -15,61 +19,46 @@ class ApodWidget extends StatelessWidget {
             padding: const EdgeInsets.all(14),
             child: Column(
               spacing: 16,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              // List<Widget> children = const <Widget>[],
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Style one of the whole text widget
-                // Text(
-                //   'Title : NGC 6960: The Witch Broom Nebula',
-                //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Text(
+                  'Title: ${apod.title}',
+                  style: TextStyle(fontSize: 14),
+                  overflow: TextOverflow.ellipsis,
+                ),
+
+                Text(
+                  'Copyright: ${apod.copyright} ',
+                  style: TextStyle(fontSize: 14),
+                ),
+
+                Text('Date: ${apod.date}', style: TextStyle(fontSize: 14)),
+
+                /// OLD EXAMPLE WE FOLLOWED : issue with the  overflow: TextOverflow.ellipsis, does not work
+                // Row(
+                //   children: [
+                //     Text(
+                //       'Title: ',
+                //       style: TextStyle(
+                //         fontSize: 16,
+                //         fontWeight: FontWeight.bold,
+                //       ),
+                //     ),
+
+                //     Text(
+                //       apod.title,
+                //       style: TextStyle(fontSize: 14),
+                //       overflow: TextOverflow.ellipsis,
+                //     ),
+                //   ],
                 // ),
-                Row(
-                  children: [
-                    Text(
-                      'Title: ',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      'NGC 6960: The Witch Broom Nebula',
-                      style: TextStyle(fontSize: 14),
-                      overflow: TextOverflow.fade,
-                    ),
-                  ],
-                ),
-
-                Row(
-                  children: [
-                    Text(
-                      'Copyright: ',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text('Brian Meyers', style: TextStyle(fontSize: 14)),
-                  ],
-                ),
-
-                Row(
-                  children: [
-                    Text(
-                      'Date: ',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text('2025 October 1', style: TextStyle(fontSize: 14)),
-                  ],
-                ),
-
                 Image.network(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+
                   /// Tip: Trigger this to check the image assets
                   // 'https://apod.nasa.gov/apod/image/251.jpg',
-                  'https://apod.nasa.gov/apod/image/2510/WitchBroom_Meyers_1080.jpg',
+                  apod.url,
                   errorBuilder: (context, error, stackTrace) {
                     return Image.asset('assets/404_not_found_image.png');
                   },
